@@ -1,4 +1,6 @@
 ---
+import CardPlayButton from '@/components/CardPlayButton';
+import MusicsTable from '@/components/MusicsTable.astro';
 import Layout from "@/layouts/Layout.astro";
 import { allPlaylists, playlists, songs } from '@/lib/data';
 
@@ -25,6 +27,7 @@ const artistString = playlist?.artists.join(", ")
       />
     </picture>
 
+
     <div class="flex flex-col justify-between">
       <h2 class="flex flex-1 items-end">Playlist</h2>
       <div>
@@ -46,8 +49,12 @@ const artistString = playlist?.artists.join(", ")
         </div>
       </div>
     </div>
-  </header> 
-  <div class="relative z-10 px-6 pt-10">
+  </header>
+  <div class="p-2">
+    <CardPlayButton id={id} client:visible/>
+  </div>
+  <div class="px-6 pt-10">
+    <MusicsTable songs={playListSongs}/>
   </div>
 </div>
 </Layout>
